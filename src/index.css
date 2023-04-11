@@ -8,6 +8,73 @@
   }
 }
 
+@layer components {
+  .chartMenu {
+    @apply mx-2 mt-2 duration-500 border-b-2 border-black opacity-0 group-hover:opacity-100
+  }
+
+  .detailLabelH1 {
+    @apply text-2xl font-bold md:text-4xl
+  }
+
+  .detailLabelSpan {
+    @apply text-xs text-zinc-500 md:text-xl
+  }
+
+  .detailLabelP {
+    @apply text-sm font-normal md:text-2xl
+  }
+
+  .detailBtn {
+    @apply flex items-center justify-center py-3 px-5 space-x-3 border-2 border-gray-300 rounded-lg shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150 md:w-1/2
+  }
+}
+
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background: black;
+  transform: rotate(0);
+  transition: all 1s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
 @font-face {
   /* font-weight: 900; */
   font-family: 'Pretendard-Black';

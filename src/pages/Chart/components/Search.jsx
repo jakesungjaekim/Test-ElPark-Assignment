@@ -48,14 +48,12 @@ const Search = () => {
     }
   },[sortOption])
 
-  useEffect(()=>{
-    console.log(musicData)
-  },[musicData])
 
   return (
     <>
      {/* Search Container */}
       <section className='flex flex-col justify-between space-y-5 md:flex-row md:space-y-0'>
+        <div className='flex flex-row items-center justify-between w-full'>
           <div className='flex justify-between border-b'>
             <input 
               type="text"
@@ -78,18 +76,18 @@ const Search = () => {
           </div>
           <div className='flex flex-col items-center justify-center space-y-4 md:space-y-0 md:flex-row md:space-x-4'>
             <label className='text-xs text-zinc-400'>Sort By:</label>
-           <select 
-            value={sortOption} 
-            onChange={handleSortOptionChange}
-            className='text-sm text-zinc-700 border-none focus:outline-none'>
-            <option value="nameAsc">오름차순</option>
-            <option value="nameDesc">내림차순</option>
-           </select>
+            <select 
+              value={sortOption} 
+              onChange={handleSortOptionChange}
+              className='text-sm border-none text-zinc-700 focus:outline-none'>
+              <option value="nameAsc">오름차순</option>
+              <option value="nameDesc">내림차순</option>
+            </select>
           </div>
-
+        </div>
       </section>
       {/* Music Gallery Container */}
-      <section className='grid gap-4 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5'>
+      <section className='grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
           {
             filteredMusic.map((music) => {
               return(

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import ChartPage from './pages/Chart/ChartPage';
-import DetailPage from './pages/Detail/DetailPage';
+import Chart from './pages/Chart'
+import Detail from './pages/Detail'
 
 
 
@@ -10,9 +10,9 @@ const Router = () => {
   return ( 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ChartPage />} />
-        <Route path="/chart" element={<ChartPage />} />
-        <Route path="/detail/:id" element={<DetailPage />} />
+        <Route path="/" element={<Chart />} />
+        <Route path="/chart" element={<Chart />} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   )
