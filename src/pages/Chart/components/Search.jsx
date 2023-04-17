@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 
 const Search = () => {
@@ -7,16 +7,22 @@ const Search = () => {
   const [searchMusic, setSearchMusic] = useState('')
   const [sortOption, setSortOption] = useState('')
   
-  const filteredMusic = musicData.filter((music) => {
-    return music['im:name'].label.toLowerCase().includes(searchMusic.toLowerCase())
-  }) 
+  const filteredMusic = useMemo(()=> {
+    return (
+      musicData.filter((music) => {
+        return music['im:name'].label.toLowerCase().includes(searchMusic.toLowerCase())
+      })
+    )
+  },[musicData, searchMusic])
+     
 
-  const handleSearch = (e) => {
+  const handleSearch = useCallback((e) => {
     setSearchMusic(e.target.value)
-  }
-  const handleSortOptionChange = (e) => {
+  },[])
+  
+  const handleSortOptionChange = useCallback((e) => {
     setSortOption(e.target.value)
-  }
+  },[])
 
   useEffect(() => {
     axios.get('/data/MockData-chart.json')
